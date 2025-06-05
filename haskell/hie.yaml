@@ -1,0 +1,10 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:haskell"
+
+    - path: "app/Main.hs"
+      component: "haskell:exe:haskell"
+
+    - path: "test/Spec.hs"
+      component: "haskell:exe:haskell"
