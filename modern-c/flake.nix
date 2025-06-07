@@ -57,7 +57,10 @@
             ];
 
             # https://devenv.sh/reference/options/
-            packages = [ ];
+            packages = with pkgs; [
+              bear # generate compile_commands.json for clangd
+              clang-tools # include clangd
+            ];
 
             # https://devenv.sh/reference/options/
             languages.c = {
