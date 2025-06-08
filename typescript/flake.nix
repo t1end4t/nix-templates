@@ -1,5 +1,5 @@
 {
-  description = "C++ developer environment";
+  description = "TypeScript developer environment";
 
   inputs = {
     devenv-root = {
@@ -9,6 +9,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
     devenv.url = "github:cachix/devenv";
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -48,24 +52,19 @@
           # packages.init = pkgs.hello;
 
           devenv.shells.default = {
-            name = "C++ project";
+            name = "TypeScript project";
 
             imports = [
               # This is just like the imports in devenv.nix.
               # See https://devenv.sh/guides/using-with-flake-parts/#import-a-devenv-module
-              ./init-project.nix
+              # ./init-project.nix
             ];
 
             # https://devenv.sh/reference/options/
-            packages = with pkgs; [
-              ninja # fast build tools
-              ccache # faster compile c++
-              cmake-language-server # lsp for cmake
-              gtest # test framework
-            ];
+            packages = [ ];
 
             # https://devenv.sh/reference/options/
-            languages.cplusplus = {
+            languages.typescript = {
               enable = true;
             };
 

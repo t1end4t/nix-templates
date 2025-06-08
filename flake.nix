@@ -83,16 +83,12 @@
         templates = rec {
           python.path = ./python;
           rust.path = ./rust;
-          modern-c.path = ./modern-c;
-          cplusplus.path = ./cplusplus;
-          haskell.path = ./haskell;
+          typescript.path = ./typescript;
 
           # Aliases
           py = python;
           rs = rust;
-          c = modern-c;
-          cc = cplusplus;
-          hs = haskell;
+          ts = typescript;
         };
       };
 }
