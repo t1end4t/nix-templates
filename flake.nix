@@ -83,13 +83,11 @@
         templates = rec {
           python.path = ./python;
           rust.path = ./rust;
-          typescript.path = ./typescript;
           zig.path = ./zig;
 
           # Aliases
           py = python;
           rs = rust;
-          ts = typescript;
         };
       };
 }
