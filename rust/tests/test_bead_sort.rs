@@ -1,4 +1,4 @@
-use rust::sorts::bead_sort;
+use rust_template::sorts::bead_sort;
 
 #[cfg(test)]
 mod tests {
