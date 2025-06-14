@@ -1,10 +1,10 @@
 cradle:
   cabal:
     - path: "src"
-      component: "lib:haskell"
+      component: "lib:haskell-template"
 
     - path: "app/Main.hs"
-      component: "haskell:exe:haskell"
+      component: "haskell-template:exe:haskell-template"
 
     - path: "test/Spec.hs"
-      component: "haskell:exe:haskell"
+      component: "haskell-template:exe:haskell-template"
