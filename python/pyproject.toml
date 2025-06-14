@@ -1,12 +1,6 @@
 [project]
-name = "python"
+name = "python-template"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
 requires-python = ">=3.11"
-dependencies = [
-    "catppuccin-jupyterlab>=0.2.4",
-    "jupyterlab>=4.4.2",
-    "jupyterlab-vim>=4.1.4",
-    "pytest>=8.3.5",
-]
+dependencies = []
