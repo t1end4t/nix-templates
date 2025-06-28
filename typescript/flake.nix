@@ -56,7 +56,9 @@
             ];
 
             # https://devenv.sh/reference/options/
-            packages = [ ];
+            packages = with pkgs; [
+              deno # runtime
+            ];
 
             # https://devenv.sh/reference/options/
             languages.typescript = {
