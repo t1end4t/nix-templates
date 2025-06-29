@@ -1,5 +1,5 @@
 {
-  description = "TypeScript dev environment";
+  description = "Nix-flake-based TypeScript development environment";
 
   inputs = {
     devenv-root = {

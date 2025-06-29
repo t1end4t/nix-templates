@@ -1,5 +1,5 @@
 {
-  description = "Nix-flake-based Python development environment";
+  description = "Nix-flake-based C++ development environment";
 
   inputs = {
     devenv-root = {
@@ -9,12 +9,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
     devenv.url = "github:cachix/devenv";
-    nixpkgs-python = {
-      url = "github:cachix/nixpkgs-python";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
   };
 
   nixConfig = {
@@ -54,7 +48,7 @@
           # packages.init = pkgs.hello;
 
           devenv.shells.default = {
-            name = "Python project";
+            name = "C++ project";
 
             imports = [
               # This is just like the imports in devenv.nix.
@@ -64,23 +58,19 @@
 
             # https://devenv.sh/reference/options/
             packages = with pkgs; [
-              pyright # python lsp
-              ruff # fast linter
+              ninja # fast build tools
+              ccache # faster compile c++
+              cmake-language-server # lsp for cmake
+              gtest # test framework
             ];
 
             # https://devenv.sh/reference/options/
-            languages.python = {
+            languages.cplusplus = {
               enable = true;
-              version = "3.11";
-              uv = {
-                enable = true;
-                sync.enable = true;
-              };
             };
 
             # https://devenv.sh/pre-commit-hooks/
             # pre-commit.hooks = {
-            #   ruff.enable = true; # linting
             # };
           };
 

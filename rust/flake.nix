@@ -1,5 +1,5 @@
 {
-  description = "Rust developer environment";
+  description = "Nix-flake-based Rust development environment";
 
   inputs = {
     devenv-root = {
