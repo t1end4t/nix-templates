@@ -3,7 +3,7 @@
   scripts.init-project.exec = ''
     ${pkgs.uv}/bin/uv init
     ${pkgs.uv}/bin/uv sync
-    ${pkgs.uv}/bin/uv add -r dev-requirements.txt
+    ${pkgs.uv}/bin/uv add --dev -r dev-requirements.txt
   '';
 
   enterShell = ''
