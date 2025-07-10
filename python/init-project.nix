@@ -9,4 +9,6 @@
   enterShell = ''
     source .devenv/state/venv/bin/activate
   '';
+
+  env.LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
 }
