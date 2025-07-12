@@ -85,16 +85,12 @@
           rust.path = ./rust;
           haskell.path = ./haskell;
           modern-c.path = ./modern-c;
-          cplusplus.path = ./cplusplus;
-          typescript.path = ./typescript;
 
           # Aliases
           py = python;
           rs = rust;
           hs = haskell;
           c = modern-c;
-          cpp = cplusplus;
-          ts = typescript;
         };
       };
 }

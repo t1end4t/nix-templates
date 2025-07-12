@@ -5,3 +5,4 @@ pre-commit-config.yaml
 .direnv/
 .devenv/
 flake.lock
+.aider*
