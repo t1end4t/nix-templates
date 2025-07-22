@@ -10,5 +10,8 @@
     source .devenv/state/venv/bin/activate
   '';
 
-  env.LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+  env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+    pkgs.stdenv.cc.cc
+    pkgs.zlib
+  ];
 }
