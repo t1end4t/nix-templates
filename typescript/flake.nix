@@ -1,5 +1,5 @@
 {
-  description = "Haskell developer environment";
+  description = "Nix-flake-based TypeScript development environment";
 
   inputs = {
     devenv-root = {
@@ -48,24 +48,38 @@
           # packages.init = pkgs.hello;
 
           devenv.shells.default = {
-            name = "Haskell project";
+            name = "TypeScript project";
 
             imports = [
               # This is just like the imports in devenv.nix.
               # See https://devenv.sh/guides/using-with-flake-parts/#import-a-devenv-module
-              # ./init-project.nix
+              ./init-project.nix
             ];
 
             # https://devenv.sh/reference/options/
-            packages = [ ];
+            packages = with pkgs; [
+              typescript-language-server # TypeScript LSP
+              eslint_d # Fast ESLint daemon
+              prettier # Code formatter
+            ];
 
             # https://devenv.sh/reference/options/
-            languages.haskell = {
+            languages.typescript = {
               enable = true;
+            };
+
+            languages.javascript = {
+              enable = true;
+              npm = {
+                enable = true;
+                install.enable = true;
+              };
             };
 
             # https://devenv.sh/pre-commit-hooks/
             # pre-commit.hooks = {
+            #   eslint.enable = true;
+            #   prettier.enable = true;
             # };
           };
 
