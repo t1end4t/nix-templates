@@ -60,10 +60,6 @@
         sourcePreference = "wheel";
       };
 
-      editableOverlay = workspace.mkEditablePyprojectOverlay {
-        root = "$REPO_ROOT";
-      };
-
       pythonSets = forEachSystem (
         system:
         let
@@ -77,11 +73,19 @@
             nixpkgs.lib.composeManyExtensions [
               pyproject-build-systems.overlays.wheel
               overlay
+
+              # --- FIX: Add setuptools to tree-format build inputs ---
+              (final: prev: {
+                tree-format = prev.tree-format.overrideAttrs (old: {
+                  nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+                    final.setuptools
+                  ];
+                });
+              })
+              # -------------------------------------------------------
             ]
           )
       );
-      # -------------------------------------
-
     in
     {
       # Your original devenv devShell (unchanged)
