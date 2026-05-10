@@ -106,10 +106,13 @@
 
                 languages.python = {
                   enable = true;
+                  lsp.enable = true;
                   version = "3.13";
                   uv = {
                     enable = true;
                     sync.enable = true;
+                    allGroups = true;
+                    # groups = [ "dev" "test" ];  # Or pick specific ones
                   };
                 };
 
@@ -137,7 +140,7 @@
 
       # --- Added: Nix package build output ---
       packages = forEachSystem (system: {
-        default = pythonSets.${system}.mkVirtualEnv "hinty-env" workspace.deps.default;
+        default = pythonSets.${system}.mkVirtualEnv "template-env" workspace.deps.default;
       });
       # ---------------------------------------
     };

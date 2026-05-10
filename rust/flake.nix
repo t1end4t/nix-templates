@@ -50,12 +50,13 @@
                 languages.rust = {
                   enable = true;
                   channel = "stable";
+                  lsp.enable = true;
                   components = [
-                    "rustc"
-                    "cargo"
-                    "clippy"
-                    "rustfmt"
-                    "rust-analyzer"
+                    # "rustc"
+                    # "cargo"
+                    # "clippy"
+                    # "rustfmt"
+                    # "rust-analyzer"
                   ];
                 };
               }

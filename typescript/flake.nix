@@ -33,60 +33,22 @@
             inherit inputs pkgs;
             modules = [
               {
-                packages = [
-                  # Node.js LTS
-                  pkgs.nodejs_22
+                # https://devenv.sh/reference/options/
+                packages = [ ];
 
-                  # TypeScript tooling
-                  pkgs.typescript
-
-                  # Linting & formatting
-                  pkgs.eslint
-                  pkgs.nodePackages.prettier
-
-                  # Testing
-                  pkgs.nodePackages.vitest
-
-                  # Build tool
-                  pkgs.nodePackages.vite
-
-                  # Utilities
-                  pkgs.jq
-                  pkgs.curl
-                  pkgs.wget
-                ];
-
-                # Node.js configuration
-                env.NODE_ENV = "development";
-
-                # Auto-initialize project on first entry
-                enterShell = ''
-                  # Initialize npm if package.json doesn't exist
-                  if [ ! -f package.json ]; then
-                    echo "📦 Initializing npm project..."
-                    npm init -y
-                  fi
-
-                  # Install dependencies if node_modules doesn't exist
-                  if [ ! -d node_modules ]; then
-                    echo "📦 Installing dependencies..."
-                    npm install
-                  fi
-
-                  echo "✅ TypeScript web app environment ready!"
-                  echo ""
-                  echo "Useful commands:"
-                  echo "  npm run dev       - Start dev server (frontend + backend)"
-                  echo "  npm run server    - Start Express backend only"
-                  echo "  npm run client    - Start Vite frontend only"
-                  echo "  npm run test      - Run Vitest tests"
-                  echo "  npm run lint      - Run ESLint"
-                  echo "  npm run format    - Run Prettier"
-                '';
-
-                # Environment variables
-                env.PORT = "3000";
-                env.NODE_ENV = "development";
+                # https://devenv.sh/reference/options/
+                languages.rust = {
+                  enable = true;
+                  channel = "stable";
+                  lsp.enable = true;
+                  components = [
+                    # "rustc"
+                    # "cargo"
+                    # "clippy"
+                    # "rustfmt"
+                    # "rust-analyzer"
+                  ];
+                };
               }
             ];
           };
