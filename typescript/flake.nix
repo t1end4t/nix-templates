@@ -37,17 +37,9 @@
                 packages = [ ];
 
                 # https://devenv.sh/reference/options/
-                languages.rust = {
+                languages.typescript = {
                   enable = true;
-                  channel = "stable";
                   lsp.enable = true;
-                  components = [
-                    # "rustc"
-                    # "cargo"
-                    # "clippy"
-                    # "rustfmt"
-                    # "rust-analyzer"
-                  ];
                 };
               }
             ];
