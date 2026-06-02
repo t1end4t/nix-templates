@@ -111,8 +111,6 @@
                   uv = {
                     enable = true;
                     sync.enable = true;
-                    allGroups = true;
-                    # groups = [ "dev" "test" ];  # Or pick specific ones
                   };
                 };
 
