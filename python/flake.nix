@@ -107,7 +107,7 @@
                 languages.python = {
                   enable = true;
                   lsp.enable = true;
-                  version = "3.13";
+                  version = "3.14";
                   uv = {
                     enable = true;
                     sync.enable = true;
