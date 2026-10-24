@@ -100,14 +100,14 @@
             modules = [
               {
                 packages = with pkgs; [
-                  pyright
-                  ruff
+                  # pyright
+                  # ruff
                 ];
 
                 languages.python = {
                   enable = true;
                   lsp.enable = true;
-                  version = "3.14";
+                  package = pkgs.python314;
                   uv = {
                     enable = true;
                     sync.enable = true;
